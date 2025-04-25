@@ -1,0 +1,31 @@
+document.getElementById("loginForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+  const msg = document.getElementById("loginMsg");
+
+  if (username === "admin" && password === "smartvend") {
+    msg.textContent = "Login successful. Redirecting to dashboard...";
+    msg.style.color = "green";
+  } else {
+    msg.textContent = "Invalid credentials. Try again.";
+    msg.style.color = "red";
+  }
+});
+
+const suggestions = [
+  "Cold Brew Coffee for early-morning gym goers",
+  "Electrolyte Water near sports facilities",
+  "Protein Chips at office locations around lunch hours",
+  "Phone Chargers in airport vending machines",
+];
+
+window.addEventListener("DOMContentLoaded", () => {
+  const list = document.getElementById("suggestions");
+  list.innerHTML = "";
+  suggestions.forEach((s) => {
+    const li = document.createElement("li");
+    li.textContent = s;
+    list.appendChild(li);
+  });
+});
